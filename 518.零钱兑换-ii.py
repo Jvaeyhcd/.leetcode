@@ -6,6 +6,9 @@
 
 # @lc code=start
 # 动态规划（优化）
+from typing import List
+
+
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         n = len(coins)

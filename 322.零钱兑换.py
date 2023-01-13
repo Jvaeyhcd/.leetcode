@@ -6,6 +6,10 @@
 
 # @lc code=start
 # 记忆化搜索
+import collections
+from typing import List
+
+
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         INF = int(1e9)

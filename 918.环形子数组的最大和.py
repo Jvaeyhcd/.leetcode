@@ -5,27 +5,20 @@
 #
 
 # @lc code=start
-class Solution(object):
-    def maxSubarraySumCircular(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+from typing import List
+
+
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
         n = len(nums)
-        max_dp = [0] * n
-        min_dp = [0] * n
-        max_val = nums[0]
-        min_val = 0
-        max_dp[0] = nums[0]
-        min_dp[0] = 0
-        sum_val = nums[0]
+        minn, maxn = 0, nums[0]
+        min_val, max_val = 0, nums[0]
         for i in range(1, n):
-            sum_val += nums[i]
-            max_dp[i] = nums[i] + max(0, max_dp[i - 1])
-            min_dp[i] = nums[i] + min(0, min_dp[i - 1])
-            max_val = max(max_val, max_dp[i])
-            min_val = min(min_val, min_dp[i])
-        
-        return max(sum_val - min_val, max_val)
+            mini = min(0, minn) + nums[i]
+            maxi = max(0, maxn) + nums[i]
+            max_val = max(max_val, maxi)
+            min_val = min(min_val, mini)
+            maxn, minn = maxi, mini
+        return max(max_val, sum(nums) - min_val)
 # @lc code=end
 

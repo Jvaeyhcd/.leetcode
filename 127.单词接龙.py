@@ -5,6 +5,9 @@
 #
 
 # @lc code=start
+import collections
+
+
 class Solution(object):
     # 广度优先搜索
     # def ladderLength(self, beginWord, endWord, wordList):
